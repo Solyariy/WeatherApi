@@ -6,3 +6,4 @@ load_dotenv()
 
 WEATHER_API_KEY=os.environ.get("WEATHER_API_KEY")
 API_TOKEN=os.environ.get("API_TOKEN")
+MODEL_API_KEY=os.environ.get("MODEL_API_KEY")
