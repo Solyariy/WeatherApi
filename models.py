@@ -4,7 +4,7 @@ from consts import MODEL_API_KEY
 
 
 class WeatherGetRequest:
-    def __init__(self, data: dict[str: str]):
+    def __init__(self, data):
         self.requester_name: str = data["requester_name"]
         self.location: str = data["location"]
         self.date: str = data["date"]
@@ -21,10 +21,10 @@ class WeatherGetRequest:
 
 
 class WeatherResponse(WeatherGetRequest):
-    def __init__(self, data: dict[str: str], weather_dict: dict[str: str]):
+    def __init__(self, data, weather_dict):
         super().__init__(data)
         self.timestamp: str = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
-        self.weather: dict = weather_dict.get("days")[0]
+        self.weather = weather_dict.get("days")[0]
         self.advice = None
 
     def to_dict(self):
